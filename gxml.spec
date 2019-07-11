@@ -87,10 +87,10 @@ This package contains development documentation for GXml library.
 %doc AUTHORS NEWS README
 
 %files -n %{libname}
-%_libdir/%name-*.so.*
+#_libdir/%name-*.so.*
 
 %files -n %{devname}
-%_includedir/%_name-%api_ver/
+%_includedir/%_name-*/
 %_libdir/%name-*.so
 %_pkgconfigdir/%_name-*.pc
 #_vapidir/%_name-*.deps
