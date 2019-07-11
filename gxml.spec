@@ -9,15 +9,15 @@ Url: https://wiki.gnome.org/GXml
 
 Source0: https://download.gnome.org/sources/gxml/0.18/%{name}-%{version}.tar.xz
 
-BuildRequires: libgio-devel
-BuildRequires: libgee0.8-devel
-BuildRequires: libxml2-devel
-BuildRequires: libvala-devel 
-BuildRequires: gobject-introspection-devel 
-BuildRequires: libgee0.8-gir-devel
+BuildRequires: pkgconfig(gio-2.0)
+BuildRequires: pkgconfig(gee-0.8)
+BuildRequires: pkgconfig(libxml-2.0)
+BuildRequires: pkgconfig(vapigen)
+BuildRequires: pkgconfig(gobject-introspection-1.0) 
+BuildRequires: typelib(Gee)
 BuildRequires: intltool 
 BuildRequires: gtk-doc
-BuildRequires: valadoc 
+BuildRequires: vala-tools
 BuildRequires: yelp-tools 
 BuildRequires: graphviz
 
@@ -43,16 +43,6 @@ Requires: %name = %version-%release
 %description gir
 GObject introspection data for the GXml library
 
-%package gir-devel
-Summary: GObject introspection devel data for the GXml library
-Group: Development/Other
-BuildArch: noarch
-Requires: %name-gir = %version-%release
-Requires: %name-devel = %version-%release
-
-%description gir-devel
-GObject introspection devel data for the GXml library.
-
 %package devel-doc
 Summary: Development documentation for GXml
 Group: Development/Documentation
@@ -63,21 +53,15 @@ Conflicts: %name < %version-%release
 This package contains development documentation for GXml library.
 
 %prep
-%setup -n %_name-%version
-# to avoid "/usr/lib/rpm/debugedit: canonicalization unexpectedly shrank by one character" bug
-find ./ -type f -print0| xargs -r0 subst 's|gxml//xlibxml.h|gxml/xlibxml.h|' --
+%setup -q
+%autopatch -p1
 
 %build
-%autoreconf
-%configure --disable-static \
-	%{subst_enable docs}
-%make_build
+%meson
+%meson_build
 
 %install
-%makeinstall_std
-
-%check
-%make check
+%meson_install
 
 %find_lang --output=%_name.lang %_name GXml
 
@@ -91,15 +75,12 @@ find ./ -type f -print0| xargs -r0 subst 's|gxml//xlibxml.h|gxml/xlibxml.h|' --
 %_pkgconfigdir/%_name-%api_ver.pc
 %_vapidir/%_name-%api_ver.deps
 %_vapidir/%_name-%api_ver.vapi
+%_girdir/GXml-%api_ver.gir
 
 %files gir
 %_typelibdir/GXml-%api_ver.typelib
-
-%files gir-devel
-%_girdir/GXml-%api_ver.gir
 
 %if_enabled docs
 %files devel-doc
 #%_datadir/gtk-doc/html/%_name/
 %_datadir/devhelp/books/GXml-%api_ver/
-%endif
