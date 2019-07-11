@@ -83,7 +83,7 @@ This package contains development documentation for GXml library.
 
 #find_lang --output=%_name.lang %_name GXml
 
-%files -f %_name.lang
+%files
 %doc AUTHORS NEWS README
 
 %files -n %{libname}
