@@ -81,7 +81,7 @@ This package contains development documentation for GXml library.
 %install
 %meson_install
 
-%find_lang --output=%_name.lang %_name GXml
+#find_lang --output=%_name.lang %_name GXml
 
 %files -f %_name.lang
 %doc AUTHORS NEWS README
