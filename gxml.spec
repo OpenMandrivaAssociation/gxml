@@ -34,11 +34,11 @@ Core API.
 
 %package -n %{libname}
 Group:		System/Libraries
-Summary:	GNOME Weather applet library
+Summary:	GXml library
 Requires:	%{name} >= %{version}-%{release}
 
 %description -n %{libname}
-This is a library to provide Weather data to the GNOME panel applet.
+This is a library for GXml.
 
 
 %package -n %{devname}
