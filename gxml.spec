@@ -87,19 +87,19 @@ This package contains development documentation for GXml library.
 %doc AUTHORS NEWS README
 
 %files -n %{libname}
-%_libdir/%name-%api_ver.so.*
+%_libdir/%name-*.so.*
 
 %files -n %{devname}
 %_includedir/%_name-%api_ver/
-%_libdir/%name-%api_ver.so
-%_pkgconfigdir/%_name-%api_ver.pc
-%_vapidir/%_name-%api_ver.deps
-%_vapidir/%_name-%api_ver.vapi
-%_girdir/GXml-%api_ver.gir
+%_libdir/%name-*.so
+%_pkgconfigdir/%_name-*.pc
+#_vapidir/%_name-*.deps
+#_vapidir/%_name-*.vapi
+#_girdir/GXml-*.gir
 
 %files -n %{girname}
-%_typelibdir/GXml-%api_ver.typelib
+%_typelibdir/GXml-*.typelib
 
 %files devel-doc
 #%_datadir/gtk-doc/html/%_name/
-%_datadir/devhelp/books/GXml-%api_ver/
+%_datadir/devhelp/books/GXml-*/
