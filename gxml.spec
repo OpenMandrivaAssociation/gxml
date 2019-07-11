@@ -41,7 +41,6 @@ Requires:	%{name} >= %{version}-%{release}
 %description -n %{libname}
 This is a library for GXml.
 
-
 %package -n %{devname}
 Summary: Development files for GXml
 Group: Development/C
@@ -90,16 +89,16 @@ This package contains development documentation for GXml library.
 #_libdir/%name-*.so.*
 
 %files -n %{devname}
-%_includedir/%_name-*/
-%_libdir/%name-*.so
-%_pkgconfigdir/%_name-*.pc
+#_includedir/%_name-*/
+#_libdir/%name-*.so
+#_pkgconfigdir/%_name-*.pc
 #_vapidir/%_name-*.deps
 #_vapidir/%_name-*.vapi
 #_girdir/GXml-*.gir
 
 %files -n %{girname}
-%_typelibdir/GXml-*.typelib
+#_typelibdir/GXml-*.typelib
 
 %files devel-doc
-#%_datadir/gtk-doc/html/%_name/
-%_datadir/devhelp/books/GXml-*/
+#_datadir/gtk-doc/html/%_name/
+#_datadir/devhelp/books/GXml-*/
