@@ -26,6 +26,7 @@ BuildRequires: gtk-doc
 BuildRequires: vala-tools
 BuildRequires: yelp-tools 
 BuildRequires: graphviz
+BuildRequires: meson
 
 %description
 GXml provides a GObject API for manipulating XML. Most functionality
