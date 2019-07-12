@@ -53,13 +53,13 @@ Provides:	%{name}-devel = %{version}-%{release}
 This package contains libraries and header files needed for
 development using GXml.
 
-%package -n %{girname}
-Summary: GObject introspection data for the GXml library
-Group: System/Libraries
-Requires: %name = %version-%release
-
-%description -n %{girname}
-GObject introspection data for the GXml library
+#package -n %{girname}
+#Summary: GObject introspection data for the GXml library
+#Group: System/Libraries
+#Requires: %name = %version-%release
+#
+#description -n %{girname}
+#GObject introspection data for the GXml library
 
 #package devel-doc
 #Summary: Development documentation for GXml
