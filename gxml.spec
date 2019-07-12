@@ -2,7 +2,7 @@
 %define major 2
 
 %define libname	%mklibname gxml %{api}
-#define girname	%mklibname gxml-gir
+%define girname	%mklibname gxml-gir
 %define devname %mklibname -d gxml
 
 Name: gxml
@@ -53,29 +53,31 @@ Provides:	%{name}-devel = %{version}-%{release}
 This package contains libraries and header files needed for
 development using GXml.
 
-#package -n %{girname}
-#Summary: GObject introspection data for the GXml library
-#Group: System/Libraries
-#Requires: %name = %version-%release
-#
-#description -n %{girname}
-#GObject introspection data for the GXml library
+%package -n %{girname}
+Summary: GObject introspection data for the GXml library
+Group: System/Libraries
+Requires: %name = %version-%release
 
-#package devel-doc
-#Summary: Development documentation for GXml
-#Group: Development/Documentation
-#BuildArch: noarch
-#Conflicts: %name < %version-%release
+%description -n %{girname}
+GObject introspection data for the GXml library
 
-#description devel-doc
-#This package contains development documentation for GXml library.
+%package devel-doc
+Summary: Development documentation for GXml
+Group: Development/Documentation
+BuildArch: noarch
+Conflicts: %name < %version-%release
+
+%description devel-doc
+This package contains development documentation for GXml library.
 
 %prep
 %setup -q
 %autopatch -p1
 
 %build
-%meson
+%meson \
+    -Ddocs=true \
+    -Dintrospection=true
 %meson_build
 
 %install
@@ -102,6 +104,6 @@ development using GXml.
 %files -n %{girname}
 #_typelibdir/GXml-*.typelib
 
-#files devel-doc
+%files devel-doc
 #{_datadir}/gtk-doc/html/%_name/
 #{_datadir}/devhelp/books/GXml-*/
