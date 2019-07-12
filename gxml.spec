@@ -1,4 +1,5 @@
 %define api 0.18
+%define major 2
 
 %define libname	%mklibname gxml %{api}
 %define girname	%mklibname gxml-gir
@@ -60,14 +61,14 @@ Requires: %name = %version-%release
 %description -n %{girname}
 GObject introspection data for the GXml library
 
-%package devel-doc
-Summary: Development documentation for GXml
-Group: Development/Documentation
-BuildArch: noarch
-Conflicts: %name < %version-%release
+#package devel-doc
+#Summary: Development documentation for GXml
+#Group: Development/Documentation
+#BuildArch: noarch
+#Conflicts: %name < %version-%release
 
-%description devel-doc
-This package contains development documentation for GXml library.
+#description devel-doc
+#This package contains development documentation for GXml library.
 
 %prep
 %setup -q
@@ -84,21 +85,23 @@ This package contains development documentation for GXml library.
 
 %files
 %doc AUTHORS NEWS README
+%{_datadir/locale/*/LC_MESSAGES/GXml-%{api}.mo
 
 %files -n %{libname}
-#_libdir/%name-*.so.*
+%{_libdir}/lib%name-%{api}.so*
 
 %files -n %{devname}
-#_includedir/%_name-*/
-#_libdir/%name-*.so
-#_pkgconfigdir/%_name-*.pc
-#_vapidir/%_name-*.deps
-#_vapidir/%_name-*.vapi
+%{_includedir}/%{name}-%{api}/%{name}/%{name}.h
+%{_libdir}/lib%name-%{api}.so
+%{_libdir}/pkgconfig/%{name}-%{api}.pc
+
+%{_datadir/vala/vapi/%{name}-%{api}.deps
+%{_datadir/vala/vapi/%{name}-%{api}.vapi
 #_girdir/GXml-*.gir
 
 %files -n %{girname}
 #_typelibdir/GXml-*.typelib
 
-%files devel-doc
+#files devel-doc
 #_datadir/gtk-doc/html/%_name/
 #_datadir/devhelp/books/GXml-*/
