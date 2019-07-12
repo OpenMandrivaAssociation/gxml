@@ -85,7 +85,7 @@ GObject introspection data for the GXml library
 
 %files
 %doc AUTHORS NEWS README
-%{_datadir/locale/*/LC_MESSAGES/GXml-%{api}.mo
+%{_datadir}/locale/*/LC_MESSAGES/GXml-%{api}.mo
 
 %files -n %{libname}
 %{_libdir}/lib%name-%{api}.so*
@@ -95,13 +95,13 @@ GObject introspection data for the GXml library
 %{_libdir}/lib%name-%{api}.so
 %{_libdir}/pkgconfig/%{name}-%{api}.pc
 
-%{_datadir/vala/vapi/%{name}-%{api}.deps
-%{_datadir/vala/vapi/%{name}-%{api}.vapi
+%{_datadir}/vala/vapi/%{name}-%{api}.deps
+%{_datadir}/vala/vapi/%{name}-%{api}.vapi
 #_girdir/GXml-*.gir
 
 %files -n %{girname}
 #_typelibdir/GXml-*.typelib
 
 #files devel-doc
-#_datadir/gtk-doc/html/%_name/
-#_datadir/devhelp/books/GXml-*/
+#{_datadir}/gtk-doc/html/%_name/
+#{_datadir}/devhelp/books/GXml-*/
