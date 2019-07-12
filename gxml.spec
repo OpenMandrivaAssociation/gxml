@@ -2,7 +2,7 @@
 %define major 2
 
 %define libname	%mklibname gxml %{api}
-%define girname	%mklibname gxml-gir
+#define girname	%mklibname gxml-gir
 %define devname %mklibname -d gxml
 
 Name: gxml
