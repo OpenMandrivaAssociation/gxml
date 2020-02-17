@@ -99,10 +99,11 @@ This package contains development documentation for GXml library.
 
 %{_datadir}/vala/vapi/%{name}-%{api}.deps
 %{_datadir}/vala/vapi/%{name}-%{api}.vapi
-#_girdir/GXml-*.gir
+%{_datadir}/gir-1.0/GXml-%{api}.gir
+/usr/share/gir-1.0/GXml-0.18.gir
 
 %files -n %{girname}
-#_typelibdir/GXml-*.typelib
+%{_libdir}/girepository-1.0/GXml-%{api}.typelib
 
 %files devel-doc
 #{_datadir}/gtk-doc/html/%_name/
