@@ -1,4 +1,4 @@
-%define api 0.18
+%define api 0.20
 %define major 2
 
 %define libname	%mklibname gxml %{api}
