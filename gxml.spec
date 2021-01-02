@@ -58,6 +58,7 @@ Summary: GObject introspection data for the GXml library
 Group: System/Libraries
 Requires: %name = %version-%release
 Requires:	%{libname} = %{version}-%{release}
+Requires:   %{name}-devel = %{version}-%{release}
 
 %description -n %{girname}
 GObject introspection data for the GXml library
