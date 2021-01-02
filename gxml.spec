@@ -6,7 +6,7 @@
 %define devname %mklibname -d gxml
 
 Name: gxml
-Version: 0.18.1
+Version: 0.20.0
 Release: 1
 
 Summary: GXml provides a GObject API for manipulating XML
