@@ -5,29 +5,29 @@
 %define girname	%mklibname gxml-gir
 %define devname %mklibname -d gxml
 
-Name: gxml
-Version: 0.20.0
-Release: 1
+Name:		gxml
+Version:	0.20.0
+Release:	2
 
-Summary: GXml provides a GObject API for manipulating XML
-Group: System/Libraries
-License: LGPLv2.1+
-Url: https://wiki.gnome.org/GXml
+Summary:	GXml provides a GObject API for manipulating XML
+Group:		System/Libraries
+License:	LGPLv2.1+
+Url:		https://wiki.gnome.org/GXml
 
-Source0: https://download.gnome.org/sources/gxml/%{api}/%{name}-%{version}.tar.xz
+Source0:	https://download.gnome.org/sources/gxml/%{api}/%{name}-%{version}.tar.xz
 
-BuildRequires: pkgconfig(gio-2.0)
-BuildRequires: pkgconfig(gee-0.8)
-BuildRequires: pkgconfig(libxml-2.0)
-BuildRequires: pkgconfig(vapigen)
-BuildRequires: pkgconfig(gobject-introspection-1.0) 
-BuildRequires: typelib(Gee)
-BuildRequires: intltool 
-BuildRequires: gtk-doc
-BuildRequires: vala-tools
-BuildRequires: yelp-tools 
-BuildRequires: graphviz
-BuildRequires: meson
+BuildRequires:	pkgconfig(gio-2.0)
+BuildRequires:	pkgconfig(gee-0.8)
+BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(vapigen)
+BuildRequires:	pkgconfig(gobject-introspection-1.0)
+BuildRequires:	typelib(Gee)
+BuildRequires:	intltool
+BuildRequires:	gtk-doc
+BuildRequires:	vala-tools
+BuildRequires:	yelp-tools
+BuildRequires:	graphviz
+BuildRequires:	meson
 
 %description
 GXml provides a GObject API for manipulating XML. Most functionality
@@ -43,9 +43,9 @@ Requires:	%{name} >= %{version}-%{release}
 This is a library for GXml.
 
 %package -n %{devname}
-Summary: Development files for GXml
-Group: Development/C
-Requires: %name = %version-%release
+Summary:	Development files for GXml
+Group:		Development/C
+Requires:	%{name} = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
@@ -54,20 +54,20 @@ This package contains libraries and header files needed for
 development using GXml.
 
 %package -n %{girname}
-Summary: GObject introspection data for the GXml library
-Group: System/Libraries
-Requires: %name = %version-%release
+Summary:	GObject introspection data for the GXml library
+Group:		System/Libraries
+Requires:	%{name} = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
-Requires:   %{name}-devel = %{version}-%{release}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description -n %{girname}
-GObject introspection data for the GXml library
+GObject introspection data for the GXml library.
 
 %package devel-doc
-Summary: Development documentation for GXml
-Group: Development/Documentation
-BuildArch: noarch
-Conflicts: %name < %version-%release
+Summary:	Development documentation for GXml
+Group:		Development/Documentation
+BuildArch:	noarch
+Conflicts:	%{name} < %{version}-%{release}
 
 %description devel-doc
 This package contains development documentation for GXml library.
@@ -101,7 +101,6 @@ This package contains development documentation for GXml library.
 
 %{_datadir}/vala/vapi/%{name}-%{api}.deps
 %{_datadir}/vala/vapi/%{name}-%{api}.vapi
-%{_datadir}/gir-1.0/GXml-%{api}.gir
 %{_datadir}/gir-1.0/GXml-%{api}.gir
 
 %files -n %{girname}
