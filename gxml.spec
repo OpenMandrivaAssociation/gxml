@@ -7,7 +7,7 @@
 
 Name:		gxml
 Version:	0.20.0
-Release:	3
+Release:	4
 
 Summary:	GXml provides a GObject API for manipulating XML
 Group:		System/Libraries
